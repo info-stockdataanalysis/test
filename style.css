@@ -108,10 +108,16 @@ canvas {
   display: block;
   width: 100%;
   cursor: crosshair;
-  touch-action: pinch-zoom;  /* allows two‑finger pinch on mobile */
+  touch-action: pinch-zoom;
 }
 #oiCanvas {
   height: 400px;
+}
+#chngHistogramCanvas, #oiHistogramCanvas {
+  width: 100%;
+  height: 250px;
+  background: #0b0f14;
+  border-radius: 8px;
 }
 .info-panel {
   background: #1a1a2a;
