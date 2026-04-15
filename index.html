@@ -2,17 +2,51 @@
 <html>
 <head>
   <title>Login</title>
+  <style>
+    body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; }
+    input, button { width: 100%; padding: 10px; margin: 8px 0; }
+    button { background: #007bff; color: white; border: none; cursor: pointer; }
+  </style>
 </head>
 <body>
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Email" autocomplete="off">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
 
-<h2>Login</h2>
+  <script>
+    const API = "https://script.google.com/macros/s/AKfycbzL7AXYEby0ONxKjVg92hiPFNqxLrph89idCuMXMSadcELzvrQO1JhbUrunjap1xVim/exec";
 
-<input id="email" placeholder="Email"><br><br>
-<input id="password" type="password" placeholder="Password"><br><br>
+    function getDeviceId() {
+      let id = localStorage.getItem("device_id");
+      if (!id) {
+        id = "dev_" + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem("device_id", id);
+      }
+      return id;
+    }
 
-<button onclick="login()">Login</button>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const device_id = getDeviceId();
 
-<script src="script.js"></script>
-
+      fetch(API, {
+        method: "POST",
+        body: JSON.stringify({ email, password, device_id })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("email", email);
+          alert("Login success");
+          window.location.href = "dashboard.html";
+        } else {
+          alert(data.msg);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
