@@ -108,7 +108,7 @@ canvas {
   display: block;
   width: 100%;
   cursor: crosshair;
-  touch-action: pinch-zoom;
+  touch-action: pinch-zoom;  /* allows two‑finger pinch on mobile */
 }
 #oiCanvas {
   height: 400px;
