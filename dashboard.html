@@ -9,8 +9,10 @@
 <body>
 <div id="controls">
   <span>📊 OI Time Series (from Sheet)</span>
-  <label>SMA: <input id="smaPeriod" type="number" value="10" min="1" max="500" style="width:60px;"></label>
+  <label>SMA: <input id="smaPeriod" type="number" value="20" min="1" max="500" style="width:60px;"></label>
   <label><input type="checkbox" id="smaToggle" checked> Show</label>
+  <label>SMA Color: <input type="color" id="smaColor" value="#b901f5"></label>
+  <span>📋 Table rows: <span id="totalRows">0</span></span>
   <button onclick="reloadData()">Refresh</button>
   <button class="logout" onclick="logout()">Logout</button>
 </div>
@@ -29,7 +31,8 @@
   <div class="scroll-table">
     <table id="optionsTable">
       <thead id="optionsHeader"></thead>
-      <tbody><tr><td colspan="10">Loading table data...</td></tr></tbody>
+      <tbody><tr><td colspan="10">Loading table data...</td></tr>
+      </tbody>
     </table>
   </div>
 </div>
