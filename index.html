@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <style>
-    body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; }
-    input, button { width: 100%; padding: 10px; margin: 8px 0; }
-    button { background: #007bff; color: white; border: none; cursor: pointer; }
-  </style>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
   <h2>Login</h2>
@@ -14,39 +12,6 @@
   <input type="password" id="password" placeholder="Password">
   <button onclick="login()">Login</button>
 
-  <script>
-    const API = "https://script.google.com/macros/s/AKfycbzL7AXYEby0ONxKjVg92hiPFNqxLrph89idCuMXMSadcELzvrQO1JhbUrunjap1xVim/exec";
-
-    function getDeviceId() {
-      let id = localStorage.getItem("device_id");
-      if (!id) {
-        id = "dev_" + Math.random().toString(36).substr(2, 9);
-        localStorage.setItem("device_id", id);
-      }
-      return id;
-    }
-
-    function login() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const device_id = getDeviceId();
-
-      fetch(API, {
-        method: "POST",
-        body: JSON.stringify({ email, password, device_id })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("email", email);
-          alert("Login success");
-          window.location.href = "dashboard.html";
-        } else {
-          alert(data.msg);
-        }
-      });
-    }
-  </script>
+  <script src="login.js"></script>
 </body>
 </html>
