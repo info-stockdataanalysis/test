@@ -6,7 +6,6 @@ body {
   background: #0f1116;
   font-family: 'Segoe UI', Arial, sans-serif;
   overflow-y: auto;
-  touch-action: pan-y pinch-zoom; /* allow vertical page scroll, allow pinch zoom on canvas */
 }
 #controls {
   background: #111;
@@ -109,7 +108,7 @@ canvas {
   display: block;
   width: 100%;
   cursor: crosshair;
-  touch-action: pinch-zoom;  /* allow pinch zoom on canvas */
+  touch-action: pinch-zoom;
 }
 #oiCanvas {
   height: 400px;
