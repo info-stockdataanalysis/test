@@ -6,6 +6,7 @@ body {
   background: #0f1116;
   font-family: 'Segoe UI', Arial, sans-serif;
   overflow-y: auto;
+  touch-action: pan-y pinch-zoom; /* allow vertical page scroll, allow pinch zoom on canvas */
 }
 #controls {
   background: #111;
@@ -95,8 +96,6 @@ tr:nth-child(even) {
   font-weight: bold;
 }
 .chart-panel {
-  display: flex;
-  flex-direction: column;
   background: #0b0f14;
   border-radius: 8px;
   margin: 0 20px;
@@ -110,14 +109,10 @@ canvas {
   display: block;
   width: 100%;
   cursor: crosshair;
-  touch-action: none;
+  touch-action: pinch-zoom;  /* allow pinch zoom on canvas */
 }
-#topCanvas {
+#oiCanvas {
   height: 400px;
-}
-#bottomCanvas {
-  height: 200px;
-  border-top: 1px solid #333;
 }
 .info-panel {
   background: #1a1a2a;
